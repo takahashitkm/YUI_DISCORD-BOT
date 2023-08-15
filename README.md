@@ -1,6 +1,6 @@
 # YUI_DISCORD-BOT
 
-Discord上で動作する、ChaGPTを利用したBOTです。
+Discord上で動作する、ChaTGPTを利用したBOTです。
 
 # ゆい.py
 ゆいという名前のチャットボットです。
