@@ -3,10 +3,9 @@ import discord
 import os
 import datetime
 import json
-from keep_alive import keep_alive
 
-my_secret = os.environ['OPENAI_API_KEY']
-TOKEN = my_secret = os.environ['DISCORD_TOKEN']
+my_secret = ''
+TOKEN = ''
 
 # 各ユーザーが1日に送信したメッセージの数を格納するための辞書
 user_messages_count = {}
@@ -14,7 +13,7 @@ user_messages_count = {}
 # ファイルを操作するための関数を追加
 def write_to_json(user_id, question, answer, user_timestamp, ai_timestamp):
     # jsonファイルのパスを設定
-    json_file_path = 
+    json_file_path = f"/home/ubuntu/{user_id}_conversation.json"
 
     data = {
         "question": question,
@@ -37,7 +36,7 @@ def write_to_json(user_id, question, answer, user_timestamp, ai_timestamp):
 
 def load_from_json(user_id):
     # jsonファイルのパスを設定
-    json_file_path = 
+    json_file_path = f"/home/ubuntu/{user_id}_conversation.json"
 
     # ファイルが存在する場合、読み込む
     if os.path.isfile(json_file_path):
@@ -128,7 +127,7 @@ async def on_message(message):
             return
         else:
             await message.channel.send("実行権限がありません。")
-  
+
     # ユーザーIDを取得
     user_id = message.author.id
 
@@ -197,8 +196,6 @@ async def on_message(message):
         except Exception as e:
             # エラーが発生した場合、その旨をDiscordに送信する
             await message.channel.send(f"エラーが発生しました: {str(e)}")
-
-keep_alive()
 
 # Botを起動する
 client.run(TOKEN)
