@@ -4,8 +4,8 @@ import os
 import datetime
 import json
 
-my_secret = ''
-TOKEN = ''
+openai_api_key = os.getenv("OPENAI_API_KEY")
+TOKEN = 'your_discord_token'
 
 # 各ユーザーが1日に送信したメッセージの数を格納するための辞書
 user_messages_count = {}
@@ -119,7 +119,7 @@ async def on_message(message):
     # Botを終了する特別なメッセージが送信された場合
     if message.content == '!shutdown':
         # Botを終了できるユーザーのIDを指定
-        owner_id = ''
+        owner_id = 'your_user_id'
 
         # メッセージを送信したユーザーがOwnerかどうかを確認
         if str(message.author.id) == owner_id:
