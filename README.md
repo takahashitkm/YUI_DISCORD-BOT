@@ -1,7 +1,8 @@
 # YUI_DISCORD-BOT
 
 Discord上で動作する、ChatGPTを利用したBOTです。
-現在はAWSのEC2インスタンス上にUbuntu 22.04 LTS にて動作中
+現在はAWSのEC2インスタンス上にUbuntu 22.04 LTS にて動作させていました。
+現在は動かしていません。
 （v1.00ではReplitを使用して、動作させていました）
 
 # ゆい.py
